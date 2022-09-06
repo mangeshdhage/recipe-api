@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/recipe_assignment
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: 'Admin@123$'
+  jpa:
+    mysql:
+      ddl-auto: update
+      show-sql: 'true'
+server:
+   port: 8082
