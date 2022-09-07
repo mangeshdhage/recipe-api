@@ -15,4 +15,8 @@ Unit tests and Integration tests have been implemented for Context load, Control
 
 The Recipe application is connected to MySQL database to persist data using JPA repository.
 
+
+
+SonarCloud link : https://sonarcloud.io/summary/new_code?id=mangeshdhage_recipes-api&branch=main to assess code quality.
+
 Local swagger link : http://localhost:8082/swagger-ui/index.html#/Recipes
