@@ -1,0 +1,26 @@
+name: Recipes-api - SonarCloud analysis
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: SonarCloud analysis         
+        uses: SonarSource/sonarcloud-github-action@52a8593990332f8fc7e8db8d8507403ef6c5d92b
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   
+        with:
+          args:        
+            -Dsonar.projectKey=mangeshdhage_recipes-api
+            -Dsonar.organization=mangeshdhage  

@@ -34,35 +34,36 @@ public class RecipeControllerTest {
 
 	@Test
 	@DisplayName("Test Get all Recipes")
-	public void testGetAllRecipes() throws RecipeException {
-		ResponseEntity<List<RecipeDTO>> result = recipeController.getAllRecipes(Mockito.any(),Mockito.any(),Mockito.any(),Mockito.any());
+	void testGetAllRecipes() throws RecipeException {
+		ResponseEntity<List<RecipeDTO>> result = recipeController.getAllRecipes(Mockito.any(), Mockito.any(),
+				Mockito.any(), Mockito.any());
 		Assertions.assertNotNull(result.getBody());
 	}
 
 	@Test
 	@DisplayName("Test Add Recipe")
-	public void testAddRecipe() throws RecipeException {
+	void testAddRecipe() throws RecipeException {
 		ResponseEntity<String> result = recipeController.addRecipe(getMockedRecipeDTO());
 		Assertions.assertEquals(HttpStatus.CREATED, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Update Recipe")
-	public void testUpdateRecipe() throws RecipeException {
+	void testUpdateRecipe() throws RecipeException {
 		ResponseEntity<String> result = recipeController.updateRecipe(getMockedRecipeDTO());
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Delete Recipe by Id")
-	public void testRemoveRecipeById() throws RecipeException {
+	void testRemoveRecipeById() throws RecipeException {
 		ResponseEntity<String> result = recipeController.deleteRecipeById(1L);
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Delete Recipe by Name")
-	public void testrRemoveRecipeByName() throws RecipeException {
+	void testrRemoveRecipeByName() throws RecipeException {
 		ResponseEntity<String> result = recipeController.deleteRecipeByName("Khichadi");
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}

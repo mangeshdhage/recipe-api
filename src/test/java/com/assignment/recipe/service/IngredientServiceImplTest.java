@@ -44,7 +44,7 @@ public class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Add Ingredient")
-	public void testAddIngredient() throws RecipeException {
+	void testAddIngredient() throws RecipeException {
 		RecipeDTO recipeDTO = getMockedRecipeDTO();
 		Recipe recipe = getMockedRecipe();
 		ingredientService.addIngredient(recipeDTO, recipe);
@@ -52,7 +52,7 @@ public class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Ingredient")
-	public void testUpdateIngredient() throws RecipeException {
+	void testUpdateIngredient() throws RecipeException {
 		RecipeDTO recipeDTO = getMockedRecipeDTO();
 		Recipe recipe = getMockedRecipe();
 		ingredientService.updateIngredient(recipeDTO, recipe, recipe);
@@ -60,7 +60,7 @@ public class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Ingredient Exception")
-	public void testUpdateIngredientException() throws RecipeException {
+	void testUpdateIngredientException() throws RecipeException {
 		RecipeException exception = assertThrows(RecipeException.class, () -> {
 			RecipeDTO recipeDTO = getMockedRecipeDTO();
 			ingredientService.updateIngredient(recipeDTO, null, getMockedRecipe());
@@ -70,7 +70,7 @@ public class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Get Filetered Recipe By Ingredient")
-	public void testGetFilteredRecipeByIngredient() {
+	void testGetFilteredRecipeByIngredient() {
 		List<Recipe> recipeList = new ArrayList<>();
 		recipeList.add(getMockedRecipe());
 		ingredientService.getFilteredRecipeByIngredient(getMockedIngredientFilter(), recipeList);
@@ -78,7 +78,7 @@ public class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Get Filetered Recipe Exclude Ingredient")
-	public void testGetFilteredRecipeExcludeIngredient() {
+	void testGetFilteredRecipeExcludeIngredient() {
 		List<Recipe> recipeList = new ArrayList<>();
 		recipeList.add(getMockedRecipe());
 		Optional<IngredientFilter> mockedIngredientFilter = getMockedIngredientFilter();

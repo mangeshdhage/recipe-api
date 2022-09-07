@@ -17,9 +17,9 @@ public final class TimestampUtil {
 
 	public static Timestamp getCurrentTimestamp() {
 		try {
-			SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT);
+			SimpleDateFormat dateTimeFormat = new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT);
 			return new Timestamp(
-					DATE_TIME_FORMAT.parse(DATE_TIME_FORMAT.format(Calendar.getInstance().getTime())).getTime());
+					dateTimeFormat.parse(dateTimeFormat.format(Calendar.getInstance().getTime())).getTime());
 		} catch (ParseException e) {
 			throw new IllegalArgumentException(e);
 		}
