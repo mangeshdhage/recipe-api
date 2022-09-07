@@ -1,4 +1,4 @@
-name: Recipes-api - SonarCloud analysis
+name: Recipes-api SonarCloud analysis
 
 on:
   push:
