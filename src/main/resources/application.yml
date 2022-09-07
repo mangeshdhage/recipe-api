@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    url: jdbc:mysql://localhost:3306/recipe_assignment
+    url: jdbc:mysql://127.0.0.1:3306/recipe_assignment
     driverClassName: com.mysql.cj.jdbc.Driver
     password: 'Admin@123$'
   jpa:
