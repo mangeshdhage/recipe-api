@@ -8,6 +8,8 @@ spring:
     mysql:
       ddl-auto: update
       show-sql: 'true'
+    hibernate:
+        dialect:org.hibernate.dialect.MySQLDialect
 server:
    port: 8082
 management:
@@ -15,3 +17,4 @@ management:
     web:
       exposure:
         include: "*"
+        
