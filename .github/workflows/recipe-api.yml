@@ -1,4 +1,4 @@
-name: Build and deploy JAR on Azure Web App Service - recipes-api
+name: Build and deploy JAR on Azure Web App Service - recipes-application
 on:
   push:
     branches:
@@ -43,7 +43,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'recipes-api'
+          app-name: 'recipes-application'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0B1D1CDAE37A4F09ABFE11A3DA59311B }}
           package: 'recipes-api.jar'

@@ -1,4 +1,5 @@
 This application allows users to manage their favourite recipes which involves adding, updating, removing and fetching recipes.
+The Recipes Api app allows user to filter the recipes based on category, no of servings, ingredients(Include/Exclude) and instructions.
 
 Documentation about the architectural choices of Recipe application - 
 
