@@ -20,7 +20,7 @@ SonarCloud link : https://sonarcloud.io/summary/new_code?id=mangeshdhage_recipes
 
 Local swagger link : http://localhost:8082/swagger-ui/index.html#/Recipes
 
-The application has been hosted on Microsoft Azure and can be accessed using URL - https://recipes-application.azurewebsites.net
+The application has been hosted on Microsoft Azure and can be accessed using URL - https://recipes-application.azurewebsites.net/swagger-ui/index.html#/
 
 I have enabled all the actuator endpoints which can be accessed using below url
 Actuator- http://localhost:8082/actuator/
