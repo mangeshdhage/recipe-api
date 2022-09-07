@@ -148,19 +148,19 @@ public class IngredientServiceImpl implements IngredientService {
 		if (optionalIngredientName.isPresent()) {
 			for (Recipe recipe : recipeList) {
 				for (Ingredient ingredient : recipe.getIngredient()) {
-					if (ingredientFilter.get().getIngredientName().equals(ingredient.getIngredientName())
-							&& ingredientFilter.get().isInclude()) {
+					if (ingredientFilter.get().getIngredientName().equalsIgnoreCase(ingredient.getIngredientName())
+							&& !ingredientFilter.get().isExclude()) {
 						includeRecipes.add(recipe);
-					} else if (ingredientFilter.get().getIngredientName().equals(ingredient.getIngredientName())
-							&& !ingredientFilter.get().isInclude()) {
+					} else if (ingredientFilter.get().getIngredientName().equalsIgnoreCase(ingredient.getIngredientName())
+							&& ingredientFilter.get().isExclude()) {
 						excludeRecipes.add(recipe);
 					}
 				}
 			}
 		}
-		if (!includeRecipes.isEmpty()) {
+		if (!includeRecipes.isEmpty() || !ingredientFilter.get().isExclude()) {
 			recipeList.retainAll(includeRecipes);
-		} else if (!excludeRecipes.isEmpty()) {
+		} else if (!excludeRecipes.isEmpty() || ingredientFilter.get().isExclude()) {
 			recipeList.removeAll(excludeRecipes);
 		}
 	}

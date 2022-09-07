@@ -19,11 +19,6 @@ public final class AppConstants {
 	public static final String DELETE_SUCCESS_MESSAGE = "recipe.delete.success";
 	public static final String RECIPE_NOT_FOUND_EXCEPTION= "recipe.not.found.exception";
 	public static final String RECIPE_ALREADY_EXISTS_EXCEPTION= "recipe.exists.exception";
-	/*
-	 * The Constants for Authorisation roles
-	 */
-	public static final String ADMIN_ROLE = "ROLE_ADMIN";
-	public static final String VIEWER_ROLE = "ROLE_VIEWER";
 
 	/*
 	 * The Constant for Content-type

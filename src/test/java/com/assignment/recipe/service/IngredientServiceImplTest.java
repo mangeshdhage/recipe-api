@@ -82,7 +82,7 @@ class IngredientServiceImplTest {
 		List<Recipe> recipeList = new ArrayList<>();
 		recipeList.add(getMockedRecipe());
 		Optional<IngredientFilter> mockedIngredientFilter = getMockedIngredientFilter();
-		mockedIngredientFilter.get().setInclude(false);
+		mockedIngredientFilter.get().setExclude(true);
 		ingredientService.getFilteredRecipeByIngredient(mockedIngredientFilter, recipeList);
 	}
 
@@ -145,7 +145,7 @@ class IngredientServiceImplTest {
 	private Optional<IngredientFilter> getMockedIngredientFilter() {
 
 		Optional<IngredientFilter> ingredientFilter = Optional.of(new IngredientFilter());
-		ingredientFilter.get().setInclude(true);
+		ingredientFilter.get().setExclude(false);
 		ingredientFilter.get().setIngredientName("Rice");
 		return ingredientFilter;
 	}

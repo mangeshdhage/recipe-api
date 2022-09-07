@@ -189,7 +189,7 @@ class RecipeServiceImplTest {
 	private Optional<IngredientFilter> getMockedIngredientFilter() {
 
 		Optional<IngredientFilter> ingredientFilter = Optional.of(new IngredientFilter());
-		ingredientFilter.get().setInclude(true);
+		ingredientFilter.get().setExclude(false);
 		ingredientFilter.get().setIngredientName("Rice");
 		return ingredientFilter;
 	}

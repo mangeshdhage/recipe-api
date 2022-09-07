@@ -21,7 +21,7 @@ public class IngredientFilter implements Serializable {
 
 	private static final long serialVersionUID = 6701780614019602001L;
 
-	private boolean include;
+	private boolean exclude;
 
 	private String ingredientName;
 
