@@ -1,5 +1,7 @@
 package com.assignment.recipe.exception;
 
+import java.io.Serializable;
+
 import org.springframework.http.HttpStatus;
 
 import lombok.AllArgsConstructor;
@@ -17,8 +19,9 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class ErrorMessage {
+public class ErrorMessage implements Serializable {
 
+	private static final long serialVersionUID = 6539354229046823538L;
 	private HttpStatus status;
 	private String message;
 

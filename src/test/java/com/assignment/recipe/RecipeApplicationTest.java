@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.StopWatch;
 
 @SpringBootTest
-public class RecipeApplicationTest {
+class RecipeApplicationTest {
 
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Test
-	public void contextLoads() {
+	void contextLoads() {
 		final StopWatch watch = new StopWatch();
 		watch.start("contextLoads");
 		System.out.println("Recipe API");

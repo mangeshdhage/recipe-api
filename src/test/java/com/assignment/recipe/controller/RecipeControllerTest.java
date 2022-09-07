@@ -21,7 +21,7 @@ import com.assignment.recipe.exception.RecipeException;
 import com.assignment.recipe.service.RecipeService;
 
 @SpringBootTest
-public class RecipeControllerTest {
+class RecipeControllerTest {
 
 	@Autowired
 	private RecipeController recipeController;

@@ -28,7 +28,7 @@ import com.assignment.recipe.repository.RecipeRepository;
 import com.assignment.recipe.service.impl.IngredientServiceImpl;
 
 @SpringBootTest
-public class IngredientServiceImplTest {
+class IngredientServiceImplTest {
 
 	@Autowired
 	private IngredientServiceImpl ingredientService;

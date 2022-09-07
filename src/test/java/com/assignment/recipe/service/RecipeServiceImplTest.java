@@ -30,7 +30,7 @@ import com.assignment.recipe.repository.RecipeRepository;
 import com.assignment.recipe.service.impl.RecipeServiceImpl;
 
 @SpringBootTest
-public class RecipeServiceImplTest {
+class RecipeServiceImplTest {
 
 	@Autowired
 	private RecipeServiceImpl recipeService;
