@@ -10,6 +10,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * IngredientDTO is a DTO class to map ingredient object for request/response.
+ * 
  * @author Mangesh Dhage
  *
  */

@@ -8,6 +8,9 @@ import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Recipe;
 
 /**
+ * EntityToDTOMapper interface to define methods for mapping entity to DTO and
+ * vice versa.
+ * 
  * @author Mangesh Dhage
  *
  */

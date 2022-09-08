@@ -9,6 +9,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * IngredientFilter class provides two attributes exclude and ingredientName to
+ * filter out recipes based on ingredients from the list. If exclude is true,
+ * then the recipe which conatins the provided ingredientName will be excluded
+ * from the Recipe list. If exclude is false, then the recipe which conatins the
+ * provided ingredientName will only be included in the Recipe list.
+ * 
  * @author Mangesh Dhage
  *
  */

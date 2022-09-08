@@ -11,6 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * ErrorMessage class provides HTTP status code and message whenever any exception is thrown.
  * @author Mangesh Dhage
  *
  */

@@ -7,6 +7,9 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 /**
+ * RecipeApplication class is the main application class. It is annotated
+ * with @SpringBootApplication as primary application configuration class.
+ * 
  * @author Mangesh Dhage
  *
  */

@@ -21,6 +21,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * Recipe is an entity class which will be mapped to recipe table.
  * @author Mangesh Dhage
  *
  */

@@ -17,7 +17,7 @@ import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Ingredient;
 import com.assignment.recipe.entity.Recipe;
 import com.assignment.recipe.exception.ErrorMessage;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 import com.assignment.recipe.repository.IngredientRepository;
 import com.assignment.recipe.service.IngredientService;
 import com.assignment.recipe.util.TimestampUtil;
@@ -25,7 +25,7 @@ import com.assignment.recipe.util.TimestampUtil;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * IngredientServiceImpl to write business logic for Ingredients.
+ * IngredientServiceImpl class conatins business logic to perform CRUD operation on ingredients.
  * 
  * @author Mangesh Dhage
  *
@@ -42,14 +42,14 @@ public class IngredientServiceImpl implements IngredientService {
 	 * 
 	 * @param recipeDTO
 	 * @param savedRecipe
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void addIngredient(RecipeDTO recipeDTO, Recipe savedRecipe) throws RecipeException {
+	public void addIngredient(RecipeDTO recipeDTO, Recipe savedRecipe) throws RecipeApplicationException {
 
 		log.info(" Inside addIngredient() of IngredientServiceImpl ");
 		ErrorMessage message = new ErrorMessage();
-		RecipeException recipeException = new RecipeException();
+		RecipeApplicationException recipeException = new RecipeApplicationException();
 
 		// Map IngredientDTO object to Ingredient object
 		Set<Ingredient> ingredients = mapIngredientDTOToIngredient(recipeDTO, savedRecipe);
@@ -73,14 +73,14 @@ public class IngredientServiceImpl implements IngredientService {
 	 * updateIngredient() will modify an ingredient of an existing Recipe.
 	 * 
 	 * @param recipeDTO
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void updateIngredient(RecipeDTO recipeDTO, Recipe recipe, Recipe updatedRecipe) throws RecipeException {
+	public void updateIngredient(RecipeDTO recipeDTO, Recipe recipe, Recipe updatedRecipe) throws RecipeApplicationException {
 
 		log.info(" Inside updateIngredient() of IngredientServiceImpl ");
 		ErrorMessage message = new ErrorMessage();
-		RecipeException recipeException = new RecipeException();
+		RecipeApplicationException recipeException = new RecipeApplicationException();
 		/**
 		 * This will delete any existing ingredients on the basis of the given recipeId
 		 */

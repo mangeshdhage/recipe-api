@@ -20,7 +20,7 @@ import com.assignment.recipe.dto.IngredientFilter;
 import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Recipe;
 import com.assignment.recipe.exception.ErrorMessage;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 import com.assignment.recipe.mapper.EntityToDTOMapper;
 import com.assignment.recipe.repository.IngredientRepository;
 import com.assignment.recipe.repository.RecipeRepository;
@@ -31,7 +31,7 @@ import com.assignment.recipe.util.AppConstants;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * RecipeServiceImpl to write business logic for Recipes and it's ingredients.
+ * RecipeServiceImpl class conatins business logic to perform CRUD operation on Recipes and it's ingredients.
  * 
  * @author Mangesh Dhage
  *
@@ -66,11 +66,11 @@ public class RecipeServiceImpl implements RecipeService {
 	 * @param instructions
 	 * @param ingredientFilter
 	 * @return
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
 	public List<RecipeDTO> getAllRecipes(String category, Integer noOfServings, String instructions,
-			Optional<IngredientFilter> ingredientFilter) throws RecipeException {
+			Optional<IngredientFilter> ingredientFilter) throws RecipeApplicationException {
 		log.info("Inside getAllRecipes() of RecipeServiceImpl :");
 
 		// Fetch all recipes based on category, noOfServings, instructions
@@ -86,7 +86,7 @@ public class RecipeServiceImpl implements RecipeService {
 		if (!optionalRecipe.isPresent()) {
 			log.error("Inside getAllRecipes() of RecipeServiceImpl : The recipe could not be found!");
 			ErrorMessage message = new ErrorMessage();
-			RecipeException recipeException = new RecipeException();
+			RecipeApplicationException recipeException = new RecipeApplicationException();
 			message.setStatus(HttpStatus.NOT_FOUND);
 			message.setMessage(messageSource.getMessage(AppConstants.RECIPE_NOT_FOUND_EXCEPTION, null, Locale.ENGLISH));
 			recipeException.setErrorMessage(message);
@@ -108,14 +108,14 @@ public class RecipeServiceImpl implements RecipeService {
 	 * the database.
 	 * 
 	 * @param recipeDTO
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void addRecipe(RecipeDTO recipeDTO) throws RecipeException {
+	public void addRecipe(RecipeDTO recipeDTO) throws RecipeApplicationException {
 
 		log.info(" Inside addRecipe() of RecipeServiceImpl ");
 		ErrorMessage message = new ErrorMessage();
-		RecipeException recipeException = new RecipeException();
+		RecipeApplicationException recipeException = new RecipeApplicationException();
 		/*
 		 * Check if the given Recipe Name is present in the database, if so, throw an
 		 * exception.
@@ -157,14 +157,14 @@ public class RecipeServiceImpl implements RecipeService {
 	 * provided ingredients into the database.
 	 * 
 	 * @param recipeDTO
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void updateRecipe(RecipeDTO recipeDTO) throws RecipeException {
+	public void updateRecipe(RecipeDTO recipeDTO) throws RecipeApplicationException {
 
 		log.info(" Inside updateRecipe() of RecipeServiceImpl ");
 		ErrorMessage message = new ErrorMessage();
-		RecipeException recipeException = new RecipeException();
+		RecipeApplicationException recipeException = new RecipeApplicationException();
 		// Check if the given Recipe Name is present in the database.If not, throw an
 		// expection
 		Optional<Recipe> recipeDB = recipeRepository.findByDishName(recipeDTO.getDishName());
@@ -193,15 +193,15 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	/**
-	 * removeRecipeById() this method will remove/delete an existing Recipe and its
+	 * removeRecipeById() method will remove/delete an existing Recipe and its
 	 * ingredients by Recipe Id. If the given recipe does not exist then the method
 	 * will throw an exception with error message The Recipe could not be found!
 	 * 
 	 * @param recipeId
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void deleteRecipeById(Long recipeId) throws RecipeException {
+	public void deleteRecipeById(Long recipeId) throws RecipeApplicationException {
 		log.info(" Inside deleteRecipeById() of RecipeServiceImpl ");
 		// Check if the given Recipe exists
 		Optional<Recipe> recipeById = recipeRepository.findById(recipeId);
@@ -216,10 +216,10 @@ public class RecipeServiceImpl implements RecipeService {
 	 * found!
 	 * 
 	 * @param dishName
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
 	@Override
-	public void deleteRecipeByName(String dishName) throws RecipeException {
+	public void deleteRecipeByName(String dishName) throws RecipeApplicationException {
 		log.info(" Inside deleteRecipeByName() of RecipeServiceImpl ");
 		// Check if the given Recipe exists
 		Optional<Recipe> recipeByName = recipeRepository.findByDishName(dishName);
@@ -231,11 +231,11 @@ public class RecipeServiceImpl implements RecipeService {
 	 * Remove Recipe by Recipe Id
 	 * 
 	 * @param recipe
-	 * @throws RecipeException
+	 * @throws RecipeApplicationException
 	 */
-	private void removeRecipeById(Optional<Recipe> recipe) throws RecipeException {
+	private void removeRecipeById(Optional<Recipe> recipe) throws RecipeApplicationException {
 		ErrorMessage message = new ErrorMessage();
-		RecipeException recipeException = new RecipeException();
+		RecipeApplicationException recipeException = new RecipeApplicationException();
 		if (!recipe.isPresent()) {
 			log.error("Inside removeRecipeById() of  RecipeServiceImpl :The Recipe could not be found!");
 			message.setStatus(HttpStatus.NOT_FOUND);

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * RecipeException is a custom exception which will be thrown while performing any CRUD operation
+ * on Recipe.
  * @author Mangesh Dhage
  *
  */
@@ -14,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class RecipeException extends Exception {
+public class RecipeApplicationException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 	ErrorMessage errorMessage;

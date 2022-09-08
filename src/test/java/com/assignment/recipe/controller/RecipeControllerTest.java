@@ -17,9 +17,14 @@ import org.springframework.http.ResponseEntity;
 
 import com.assignment.recipe.dto.IngredientDTO;
 import com.assignment.recipe.dto.RecipeDTO;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 import com.assignment.recipe.service.RecipeService;
 
+/**
+ * Test cases for Recipe Controller class
+ * 
+ * @author Mangesh Dhage
+ */
 @SpringBootTest
 class RecipeControllerTest {
 
@@ -34,7 +39,7 @@ class RecipeControllerTest {
 
 	@Test
 	@DisplayName("Test Get all Recipes")
-	void testGetAllRecipes() throws RecipeException {
+	void testGetAllRecipes() throws RecipeApplicationException {
 		ResponseEntity<List<RecipeDTO>> result = recipeController.getAllRecipes(Mockito.any(), Mockito.any(),
 				Mockito.any(), Mockito.any());
 		Assertions.assertNotNull(result.getBody());
@@ -42,28 +47,28 @@ class RecipeControllerTest {
 
 	@Test
 	@DisplayName("Test Add Recipe")
-	void testAddRecipe() throws RecipeException {
+	void testAddRecipe() throws RecipeApplicationException {
 		ResponseEntity<String> result = recipeController.addRecipe(getMockedRecipeDTO());
 		Assertions.assertEquals(HttpStatus.CREATED, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Update Recipe")
-	void testUpdateRecipe() throws RecipeException {
+	void testUpdateRecipe() throws RecipeApplicationException {
 		ResponseEntity<String> result = recipeController.updateRecipe(getMockedRecipeDTO());
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Delete Recipe by Id")
-	void testRemoveRecipeById() throws RecipeException {
+	void testRemoveRecipeById() throws RecipeApplicationException {
 		ResponseEntity<String> result = recipeController.deleteRecipeById(1L);
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}
 
 	@Test
 	@DisplayName("Test Delete Recipe by Name")
-	void testrRemoveRecipeByName() throws RecipeException {
+	void testrRemoveRecipeByName() throws RecipeApplicationException {
 		ResponseEntity<String> result = recipeController.deleteRecipeByName("Khichadi");
 		Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
 	}

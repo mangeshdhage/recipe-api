@@ -21,12 +21,17 @@ import com.assignment.recipe.dto.IngredientFilter;
 import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Ingredient;
 import com.assignment.recipe.entity.Recipe;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 import com.assignment.recipe.mapper.EntityToDTOMapper;
 import com.assignment.recipe.repository.IngredientRepository;
 import com.assignment.recipe.repository.RecipeRepository;
 import com.assignment.recipe.service.impl.IngredientServiceImpl;
 
+/**
+ * Test cases for Ingredient Service class
+ * 
+ * @author Mangesh Dhage
+ */
 @SpringBootTest
 class IngredientServiceImplTest {
 
@@ -44,7 +49,7 @@ class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Add Ingredient")
-	void testAddIngredient() throws RecipeException {
+	void testAddIngredient() throws RecipeApplicationException {
 		RecipeDTO recipeDTO = getMockedRecipeDTO();
 		Recipe recipe = getMockedRecipe();
 		ingredientService.addIngredient(recipeDTO, recipe);
@@ -52,7 +57,7 @@ class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Ingredient")
-	void testUpdateIngredient() throws RecipeException {
+	void testUpdateIngredient() throws RecipeApplicationException {
 		RecipeDTO recipeDTO = getMockedRecipeDTO();
 		Recipe recipe = getMockedRecipe();
 		ingredientService.updateIngredient(recipeDTO, recipe, recipe);
@@ -60,8 +65,8 @@ class IngredientServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Ingredient Exception")
-	void testUpdateIngredientException() throws RecipeException {
-		RecipeException exception = assertThrows(RecipeException.class, () -> {
+	void testUpdateIngredientException() throws RecipeApplicationException {
+		RecipeApplicationException exception = assertThrows(RecipeApplicationException.class, () -> {
 			RecipeDTO recipeDTO = getMockedRecipeDTO();
 			ingredientService.updateIngredient(recipeDTO, null, getMockedRecipe());
 		});

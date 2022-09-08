@@ -6,17 +6,18 @@ import java.util.Optional;
 import com.assignment.recipe.dto.IngredientFilter;
 import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Recipe;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 
 /**
+ * IngredientService is an interface to define methods which will be implemented to write business logic.
  * @author Mangesh Dhage
  *
  */
 public interface IngredientService {
 
-	public void addIngredient(RecipeDTO recipeDTO, Recipe savedRecipe) throws RecipeException;
+	public void addIngredient(RecipeDTO recipeDTO, Recipe savedRecipe) throws RecipeApplicationException;
 
-	public void updateIngredient(RecipeDTO recipeDTO, Recipe recipe, Recipe updatedRecipe) throws RecipeException;
+	public void updateIngredient(RecipeDTO recipeDTO, Recipe recipe, Recipe updatedRecipe) throws RecipeApplicationException;
 
 	public void getFilteredRecipeByIngredient(Optional<IngredientFilter> ingredientFilter, List<Recipe> recipeList);
 

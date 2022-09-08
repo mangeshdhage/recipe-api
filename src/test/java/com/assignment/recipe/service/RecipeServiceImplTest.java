@@ -23,12 +23,17 @@ import com.assignment.recipe.dto.IngredientFilter;
 import com.assignment.recipe.dto.RecipeDTO;
 import com.assignment.recipe.entity.Ingredient;
 import com.assignment.recipe.entity.Recipe;
-import com.assignment.recipe.exception.RecipeException;
+import com.assignment.recipe.exception.RecipeApplicationException;
 import com.assignment.recipe.mapper.EntityToDTOMapper;
 import com.assignment.recipe.repository.IngredientRepository;
 import com.assignment.recipe.repository.RecipeRepository;
 import com.assignment.recipe.service.impl.RecipeServiceImpl;
 
+/**
+ * Test cases for Recipe Service class
+ * 
+ * @author Mangesh Dhage
+ */
 @SpringBootTest
 class RecipeServiceImplTest {
 
@@ -49,7 +54,7 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Get all Recipes")
-	void testGetAllRecipes() throws RecipeException {
+	void testGetAllRecipes() throws RecipeApplicationException {
 		List<Recipe> recipies = new ArrayList<>();
 		recipies.add(getMockedRecipe());
 		Mockito.when(recipeRepository.findAll()).thenReturn(recipies);
@@ -60,7 +65,7 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Add Recipe")
-	void testAddRecipe() throws RecipeException {
+	void testAddRecipe() throws RecipeApplicationException {
 		RecipeDTO recipeDTO = getMockedRecipeDTO();
 		Mockito.when(recipeRepository.findByDishName(recipeDTO.getDishName())).thenReturn(Optional.empty());
 		recipeService.addRecipe(recipeDTO);
@@ -68,8 +73,8 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Add Recipe Exception")
-	void testAddRecipeException() throws RecipeException {
-		RecipeException exception = assertThrows(RecipeException.class, () -> {
+	void testAddRecipeException() throws RecipeApplicationException {
+		RecipeApplicationException exception = assertThrows(RecipeApplicationException.class, () -> {
 			RecipeDTO recipeDTO = getMockedRecipeDTO();
 			Mockito.when(recipeRepository.findByDishName(recipeDTO.getDishName()))
 					.thenReturn(getMockedOptionalRecipe());
@@ -80,8 +85,8 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Recipe Exception")
-	void testUpdateRecipeException() throws RecipeException {
-		RecipeException exception = assertThrows(RecipeException.class, () -> {
+	void testUpdateRecipeException() throws RecipeApplicationException {
+		RecipeApplicationException exception = assertThrows(RecipeApplicationException.class, () -> {
 			RecipeDTO recipeDTO = getMockedRecipeDTO();
 			Mockito.when(recipeRepository.findByDishName(recipeDTO.getDishName()))
 					.thenReturn(getMockedOptionalRecipe());
@@ -92,8 +97,8 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Update Recipes Not Found Exception")
-	void testUpdateRecipeNotFoundException() throws RecipeException {
-		RecipeException exception = assertThrows(RecipeException.class, () -> {
+	void testUpdateRecipeNotFoundException() throws RecipeApplicationException {
+		RecipeApplicationException exception = assertThrows(RecipeApplicationException.class, () -> {
 			Mockito.when(recipeRepository.findByDishName("Test")).thenReturn(Optional.empty());
 			recipeService.updateRecipe(getMockedRecipeDTO());
 		});
@@ -102,22 +107,22 @@ class RecipeServiceImplTest {
 
 	@Test
 	@DisplayName("Test Service- Delete Recipe by Id")
-	void testRemoveRecipeById() throws RecipeException {
+	void testRemoveRecipeById() throws RecipeApplicationException {
 		Mockito.when(recipeRepository.findById(1L)).thenReturn(getMockedOptionalRecipe());
 		recipeService.deleteRecipeById(1L);
 	}
 
 	@Test
 	@DisplayName("Test Service- Delete Recipe by Name")
-	void testrRemoveRecipeByName() throws RecipeException {
+	void testrRemoveRecipeByName() throws RecipeApplicationException {
 		Mockito.when(recipeRepository.findByDishName("Khichadi")).thenReturn(getMockedOptionalRecipe());
 		recipeService.deleteRecipeByName("Khichadi");
 	}
 
 	@Test
 	@DisplayName("Test Service- Delete Recipes Exception")
-	void testRemoveRecipesException() throws RecipeException {
-		RecipeException exception = assertThrows(RecipeException.class, () -> {
+	void testRemoveRecipesException() throws RecipeApplicationException {
+		RecipeApplicationException exception = assertThrows(RecipeApplicationException.class, () -> {
 			Mockito.when(recipeRepository.findById(1234L)).thenReturn(Optional.empty());
 			recipeService.deleteRecipeById(1234L);
 		});

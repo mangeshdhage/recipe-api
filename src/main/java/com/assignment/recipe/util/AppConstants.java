@@ -1,9 +1,9 @@
 package com.assignment.recipe.util;
 
 /**
+ * AppConstants class contains all the constants used over the entire application.
  * @author Mangesh Dhage
  *
- *         The type Constants
  */
 public final class AppConstants {
 

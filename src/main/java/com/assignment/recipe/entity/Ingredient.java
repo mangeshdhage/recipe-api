@@ -20,6 +20,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * Ingredient is an entity class which will be mapped to ingredient table.
  * @author Mangesh Dhage
  *
  */

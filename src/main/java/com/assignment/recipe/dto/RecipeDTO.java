@@ -11,6 +11,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * RecipeDTO is a DTO class to map recipe object for request/response.
+ * 
  * @author Mangesh Dhage
  *
  */

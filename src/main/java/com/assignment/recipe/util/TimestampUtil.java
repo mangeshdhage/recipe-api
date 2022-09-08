@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
+ * TimestampUtil is an utility class to obtain current timestamp using SimpleDateFormat.
+ * This is required to persist createTimestamp and updateTimetamp value in database.
  * @author Mangesh Dhage
  *
  */

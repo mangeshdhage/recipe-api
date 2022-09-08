@@ -16,6 +16,11 @@ import com.assignment.recipe.entity.Recipe;
 import com.assignment.recipe.mapper.EntityToDTOMapper;
 import com.assignment.recipe.util.TimestampUtil;
 
+/**
+ * EntityToDTOMapperImpl is an auto generated class using mapStruct to provide
+ * implementation for mapping entity to DTO and vice versa.
+ *
+ */
 @Generated(value = "org.mapstruct.ap.MappingProcessor", date = "2022-09-05T18:43:42+0530", comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.3 (Eclipse Adoptium)")
 @Service
 public class EntityToDTOMapperImpl implements EntityToDTOMapper {

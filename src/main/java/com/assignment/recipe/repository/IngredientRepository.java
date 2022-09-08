@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 import com.assignment.recipe.entity.Ingredient;
 
 /**
+ * IngredientRepository is a repository interface to write and execute JPA
+ * queries in ingredient table. It extends CrudRepository interface to perfrom
+ * CRUD operations on ingredient table and JpaSpecificationExecutor interface to
+ * allow execution of queries based on the JPA criteria API.
+ * 
  * @author Mangesh Dhage
  *
  */

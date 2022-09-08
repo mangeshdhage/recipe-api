@@ -7,6 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.StopWatch;
 
+/**
+ * Test case to verify if the application is able to load Spring context
+ * successfully or not.
+ * 
+ * @author Mangesh Dhage
+ */
 @SpringBootTest
 class RecipeApplicationTest {
 
