@@ -14,14 +14,25 @@ REST API has been documented using **OpenAPI Specification (OAS)** Version 3.0.3
 
 Unit tests and Integration tests have been implemented for Context load, Controller and Business logic.
 
-The Recipe application is connected to MySQL database to persist data using JPA repository. I have used Azure Database for MySQL servers.
+The Recipe application is connected to MySQL database to persist data using JPA repository. I have used **Azure Database for MySQL servers**. 
+The db details are present in appication.yml file.
 
-**SonarCloud link** : https://sonarcloud.io/summary/new_code?id=mangeshdhage_recipes-api&branch=main to assess code quality.
-
-**Local swagger link** : http://localhost:8082/swagger-ui/index.html#/Recipes
+**Microsoft Azure environment details** :
 
 The application has been hosted on **Microsoft Azure** and can be accessed using URL - **https://recipes-application.azurewebsites.net/swagger-ui/index.html#/**
 
-I have enabled all the actuator endpoints which can be accessed using below url
-Local Actuator- http://localhost:8082/actuator/
-Microsoft Azure Actuator- https://recipes-application.azurewebsites.net/actuator
+I have enabled all the actuator endpoints which can be accessed using - https://recipes-application.azurewebsites.net/actuator
+
+**SonarCloud link** : https://sonarcloud.io/summary/new_code?id=mangeshdhage_recipes-api&branch=main to assess code quality.
+
+**Local environment details**
+
+Swagger link : http://localhost:8082/swagger-ui/index.html#/Recipes
+
+Actuator- http://localhost:8082/actuator/
+
+Basic authentication and authorization have been implemented. Below are the credentials to login to Swagger link to access the endpoints.
+
+**User name** : **test_user**
+
+**Password** : **test_pwd**
