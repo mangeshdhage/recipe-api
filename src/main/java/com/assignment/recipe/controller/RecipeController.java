@@ -30,6 +30,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -44,6 +45,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RestController
 @RequestMapping("/recipes")
+@SecurityRequirement(name = "recipes-api")
 public class RecipeController {
 
 	@Autowired
